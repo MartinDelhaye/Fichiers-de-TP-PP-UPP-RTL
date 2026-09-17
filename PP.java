@@ -92,7 +92,7 @@ class PPInv extends PPUnOp {
     }//PPInv
 
     UPPExpr toUPP(ArrayList<String> locals) {
-        //To do
+        return new UPPSub(new UPPCte(0),e.toUPP(locals));
     }//toUPP
 
 }//PPInv
