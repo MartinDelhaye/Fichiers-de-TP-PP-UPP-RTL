@@ -48,8 +48,8 @@ class PPCte extends PPExpr {
 
 class PPTrue extends PPExpr {
 
-    UPPExpr toUPP(ArrayList<String> locals) {
-        //To do
+    UPPExpr toUPP(ArrayList<String> locals) {       
+        return new UPPTrue();
     }//toUPP
 
 }//PPTrue
@@ -57,7 +57,7 @@ class PPTrue extends PPExpr {
 class PPFalse extends PPExpr {
 
     UPPExpr toUPP(ArrayList<String> locals) {
-        //To do
+        return new UPPFalse();
     }//toUPP
 
 }//PPFalse
@@ -71,7 +71,10 @@ class PPVar extends PPExpr {
     }//PPVar
 
     UPPExpr toUPP(ArrayList<String> locals) {
-        //To do
+        if(locals.contains(name))
+            return new UPPVar(name);
+        else
+            return new UPPGVar(name);
     }//toUPP
 
 }//PPVar
